@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  test-checkout-v5:
+  test-setup-java-v5:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:

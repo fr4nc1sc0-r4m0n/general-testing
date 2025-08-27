@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  test-checkout-v5:
+  test-setup-gcloud-v3:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
