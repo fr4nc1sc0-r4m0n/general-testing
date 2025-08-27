@@ -1,0 +1,24 @@
+name: testing setup-gcloud v3.0.0
+
+on: 
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  test-checkout-v5:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-22.04, windows-latest, macos-latest, macos-13, macos-14]
+    steps:
+      - id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v3
+
+      - name: Use gcloud CLI
+        run: gcloud info
